@@ -1,0 +1,105 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="Dummy Banking System" />
+        <meta name="author" content="Maksudul Haque" />
+        <title>
+        </title>
+        <link href="{% static 'form.css' %}" rel="stylesheet">
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+        <style>
+            html,
+            body {
+                height: 100%;
+                width: 100%;
+            }
+            
+            body {
+                background-image: url('{% static "img/wp-1.jpg" %}');
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center center;
+                padding-bottom: 5em;
+            }
+            body #main{
+                padding-bottom: 5em;
+            }
+            
+            footer {
+                position: fixed !important;
+                bottom: 0 !important;
+                width: 100%;
+            }
+/* The dropdown container */
+.dropdown {
+  margin-left:5px;
+  float: left;
+  overflow: hidden;
+}
+
+/* Dropdown button */
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit; /* Important for vertical align on mobile phones */
+  margin: 0; /* Important for vertical align on mobile phones */
+}
+
+/* Add a red background color to navbar links on hover */
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+/* Add a grey background color to dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+        </style>
+    </head>
+    <body class="bg-gray-100">
+        {% block body %}
+            {% include 'core/navbar.html' %}
+            <div class="lg:container lg:mx-auto" id="main">
+                {% include 'core/messages.html' %}
+                {% block content %}
+                <!-- Add content here -->
+                {% endblock %}
+            </div>
+            {% include 'core/footer.html' %}
+
+        {% endblock %}
+    </body>
+
+</html>

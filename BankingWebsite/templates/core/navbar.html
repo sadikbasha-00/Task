@@ -1,0 +1,48 @@
+<nav class="flex items-center justify-between flex-wrap bg-blue-400 p-6 px-10">
+    <div class="flex items-center flex-shrink-0 text-white mr-6">
+        <span class="font-semibold text-xl tracking-tight text-white">Simple Banking System</span>
+    </div>
+    <div class="block lg:hidden">
+        <button class="flex items-center px-3 py-2 border rounded text-white border-white-400 hover:text-white hover:border-white">
+            <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
+        </button>
+    </div>
+    <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto px-10">
+            <div class="text-md lg:flex-grow">
+                <a href="{% url 'coreapp:home' %}" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4">
+                    Home
+                </a>
+            </div>
+        {% if user.is_authenticated %}
+        <h1 style="margin-right:5px;" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4" >Hello {{user.username}}</h1>
+        <div>
+            <a href="{% url 'coreapp:logout' %}" class="inline-block font-medium text-sm px-4 py-2 leading-none bg-blue-900 rounded text-white border-white hover:border-transparent hover:text-gray-800 hover:bg-white mt-4 lg:mt-0">Logout</a>
+        </div>
+        {% else %}
+         <div class="text-md lg:flex-grow"></div>
+            <div>
+                <a href="{% url 'coreapp:login' %}" class="mr-2 inline-block font-medium text-sm px-4 py-2 leading-none bg-blue-900 rounded text-white border-white hover:border-transparent hover:text-gray-800 hover:bg-white mt-4 lg:mt-0">Login</a>
+            </div>
+            <div>
+                <a href="{% url 'coreapp:register' %}" class="inline-block font-medium text-sm px-4 py-2 leading-none bg-blue-900 rounded text-white border-white hover:border-transparent hover:text-gray-800 hover:bg-white mt-4 lg:mt-0">Register</a>
+            </div>
+        {% endif %}
+
+        <div class="navbar">
+  <div class="dropdown">
+      <div>
+          <a href="" class="inline-block font-medium text-sm px-4 py-2 leading-none bg-blue-900 rounded text-white border-white hover:border-transparent hover:text-gray-800 hover:bg-white mt-4 lg:mt-0">Branches</a>
+      </div>
+    <div class="dropdown-content">
+      <a href="https://en.wikipedia.org/wiki/Palakkad" target="_blank" rel="noopener noreferrer">Palakkad</a>
+      <a href="https://en.wikipedia.org/wiki/Thrissur" target="_blank" rel="noopener noreferrer">Thrissur</a>
+      <a href="https://en.wikipedia.org/wiki/Thiruvananthapuram" target="_blank" rel="noopener noreferrer">Thiruvananthapuram</a>
+      <a href="https://en.wikipedia.org/wiki/Kozhikode" target="_blank" rel="noopener noreferrer">Kozhikode</a>
+      <a href="https://en.wikipedia.org/wiki/Kannur" target="_blank" rel="noopener noreferrer">Kannur</a>
+    </div>
+  </div>
+</div>
+</div>
+
+    </div>
+</nav>
